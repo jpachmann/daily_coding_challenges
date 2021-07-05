@@ -1,2 +1,2 @@
 # daily_coding_challenges_solved
-solved coding challenges from https://www.dailycodingproblem.com
+Solutions to coding challenges from https://www.dailycodingproblem.com every day in Python
