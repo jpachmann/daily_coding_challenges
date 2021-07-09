@@ -14,23 +14,16 @@ The top left corner and bottom right corner will always be 0.
 
 def solution(matrix, x=0, y=0):
     count = 0
-    right, left = False, False
+    max_x, max_y = len(matrix[0]) - 1, len(matrix) - 1
 
-    if y == len(matrix) - 1 and x == len(matrix[0]) - 1:  # found a way
+    if x == max_x and y == max_y:  # found a way
         return 1
 
-    if x+1 < len(matrix[0]):
-        if matrix[y][x+1] == 0:
-            count += solution(matrix, x+1, y)  # look right
-            right = True
+    if x < max_x and matrix[y][x + 1] == 0:
+        count += solution(matrix, x + 1, y)  # look right
 
-    if y+1 < len(matrix):
-        if matrix[y+1][x] == 0:
-            count += solution(matrix, x, y+1)  # look down
-            left = True
-
-    if not right and not left:  # dead end
-        return 0
+    if y < max_y and matrix[y + 1][x] == 0:
+        count += solution(matrix, x, y + 1)  # look down
 
     return count
 
